@@ -86,6 +86,28 @@ module Enumerable
     # Return the new array
     new_array
   end
+
+  def my_inject(initial_value)
+    # If there is no initial_value given
+    if initial_value == nil
+      accumulator = self[0]
+      # For every element of the array, starting from the 2nd element as the first will be the accumulator
+      for el in self[1]..self[-1]
+        # Pass the accumulator and element into the block, and output the result into the accumulator to be used for next round
+        accumulator = yield accumulator, el
+      end
+      return accumulator
+    else
+      # Initialize the accumulator
+      accumulator = initial_value
+      # For every element of the array,
+      for el in self
+        # Pass the accumulator and element into the block, and output the result into the accumulator to be used for next round
+        accumulator = yield accumulator, el
+      end
+      return accumulator
+    end
+  end
 end
 
 # You will first have to define my_each
