@@ -74,6 +74,18 @@ module Enumerable
     end
     count
   end
+  
+  def my_map
+    # Initialize the new array
+    new_array = []
+    # For every element of the array
+    for el in self
+      # Apply the block and push the new element into the updated array
+      new_array.push(yield el)
+    end
+    # Return the new array
+    new_array
+  end
 end
 
 # You will first have to define my_each
