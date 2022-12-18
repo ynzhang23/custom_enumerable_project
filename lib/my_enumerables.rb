@@ -23,6 +23,16 @@ module Enumerable
     end
     new_array
   end
+
+  def my_all?
+    bool = true
+    for el in self
+      unless yield el
+        bool = false
+      end
+    end
+    bool
+  end
 end
 
 # You will first have to define my_each
