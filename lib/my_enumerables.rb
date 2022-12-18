@@ -53,6 +53,27 @@ module Enumerable
     end
     bool
   end
+
+  def my_count
+    # Initialize the variable count
+    count = 0
+    # If there is a condition (Block exists)
+    if block_given?
+      # For every element of the array
+      for el in self
+        # If the argument passed into the yield returns true
+        if yield el
+          # Add the count
+          count += 1
+        end
+      end
+    else
+      for el in self
+        count += 1
+      end
+    end
+    count
+  end
 end
 
 # You will first have to define my_each
