@@ -8,4 +8,12 @@ end
 # to this method
 class Array
   # Define my_each here
+  def my_each
+    # Repeat yield for each element of an array
+    for element in self
+      yield element
+    end
+    # Return the original array
+    self
+  end
 end
