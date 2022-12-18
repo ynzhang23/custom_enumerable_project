@@ -33,6 +33,16 @@ module Enumerable
     end
     bool
   end
+
+  def my_any?
+    bool = false
+    for el in self
+      if yield el
+        bool = true
+      end
+    end
+    bool
+  end
 end
 
 # You will first have to define my_each
