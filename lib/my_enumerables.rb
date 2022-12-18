@@ -43,6 +43,16 @@ module Enumerable
     end
     bool
   end
+
+  def my_none?
+    bool = true
+    for el in self
+      if yield el
+        bool = false
+      end
+    end
+    bool
+  end
 end
 
 # You will first have to define my_each
