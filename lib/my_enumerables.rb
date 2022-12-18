@@ -1,5 +1,4 @@
 module Enumerable
-  # Your code goes here
   def my_each_with_index
     # Begin at index 0
     index = 0
@@ -11,6 +10,19 @@ module Enumerable
     # Return the original array
     self
   end
+
+  def my_select
+    # New array
+    new_array = []
+    # Loop through the array
+    for el in self
+      # If element fits criteria, push it into the new array
+      if yield el
+        new_array << el
+      end
+    end
+    new_array
+  end
 end
 
 # You will first have to define my_each
@@ -18,7 +30,6 @@ end
 # your enumerable module will have access
 # to this method
 class Array
-  # Define my_each here
   def my_each
     # Repeat yield for each element of an array
     for el in self
